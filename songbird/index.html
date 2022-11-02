@@ -8,9 +8,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap-reboot.rtl.min.css"/>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="body">
     <div class="promo">
-        
+        <div class="promo__bg">
+            <picture class="promo__img-wrapper">
+                <source media="(max-width: 799px)" srcset="./assets/img/bg-main-mobile.jpg" />
+                <source media="(min-width: 800px)" srcset="./assets/img/bg-main.jpg" />
+                <img class="promo__img" src="./assets/img/bg-main.jpg" alt="background image" />
+            </picture>
+            <div class="promo__shadow"></div>
+        </div>
+        <div class="promo__text">
+            <div class="promo__title">
+                <span class="minor">Викторина по героям игры</span>
+                <br>DOTA 2
+            </div>
+            <div class="promo__divider"></div>
+            <div class="promo__descr">Dota — одна из наиболее популярных онлайн игр современности. Каждый день в неё играют сотни тысяч людей. А главный турнир The International ежигодно приковывает взгляды миллионов людей со всего мира.
+                Поэтому предлогаю вам познакомится чуть ближе с миром этой игры, а знакомым с ней, испытать свои познания в репликах всем известных героев.
+                <a href="/game.html">
+                    <div class="promo__btn">
+                        <div class="promo__btn-inner-text">начать викторину</div>
+                    </div>
+                </a>
+            </div>
+    </div>
     </div>
 
     <script src="script.js"></script>
