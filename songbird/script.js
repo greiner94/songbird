@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', event => {
     const progressBar = audioPlayer.querySelector(".progress");
     progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
     audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(audio.currentTime);
-  }, 500);
+  }, 100);
   const playBtn = audioPlayer.querySelector(".controls .toggle-play");
   playBtn.addEventListener("click", () => {
     if (audio.paused) {
