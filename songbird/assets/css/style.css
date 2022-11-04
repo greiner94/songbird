@@ -46,6 +46,9 @@
 body {
   position: relative;
 }
+body::-webkit-scrollbar {
+  width: 0px;
+}
 
 .container {
   max-width: 1200px;
@@ -678,7 +681,7 @@ a:active {
   color: #fff;
 }
 .details__instruction {
-  display: none;
+  display: block;
 }
 .details__instruction-text, .details__instruction-title {
   font-family: radiance;
@@ -690,6 +693,10 @@ a:active {
 }
 .details__instruction-title {
   text-decoration: underline;
+}
+
+.details__hero {
+  display: none;
 }
 
 .hero__wrapper {
@@ -705,7 +712,8 @@ a:active {
 .hero__text {
   margin-top: 10px;
   overflow: auto;
-  height: 135px;
+  height: 128px;
+  font-size: 15px;
   /* Track */
   /* Handle */
   /* Handle on hover */

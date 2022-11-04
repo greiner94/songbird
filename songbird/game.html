@@ -16,232 +16,236 @@
     <img src="./assets/img/fire.gif" alt="background" class="game__bg-img-fire">
   </div>
 
-  <header class="header">
-    <div class="container">
-      <div class="header__wrapper">
-        <div class="header__logo-with-lang">
-
-          <a href="./" class="logo">
-            <div class="logo__wrapper">
-              <div class="logo__image">
-                <img src="./assets/icons/dota-logo.png" alt="logo">
-              </div>
-              <div class="logo__title">
-                quiz
-              </div>
-            </div>
-          </a>
+  <div class="animation animate__animated animate__fadeInUp">
+   
   
-          <div class="language">
-            <div class="language__wrapper">
-              <div class="language__icon">
-                <img src="./assets/icons/language.svg" alt="language icon">
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__logo-with-lang">
+  
+            <a href="./" class="logo">
+              <div class="logo__wrapper">
+                <div class="logo__image">
+                  <img src="./assets/icons/dota-logo.png" alt="logo">
+                </div>
+                <div class="logo__title">
+                  quiz
+                </div>
               </div>
-              <div class="language__title">
-                язык
+            </a>
+    
+            <div class="language">
+              <div class="language__wrapper">
+                <div class="language__icon">
+                  <img src="./assets/icons/language.svg" alt="language icon">
+                </div>
+                <div class="language__title">
+                  язык
+                </div>
               </div>
+            </div>
+  
+          </div>
+  
+          <div class="header__btn">
+            <div class="header__btn-inner-text">
+              <img src="./assets/icons/bounty.webp" alt="bounty rune">
+              счет: 
+              <span class="header__btn-inner-score">0</span>
             </div>
           </div>
-
-        </div>
-
-        <div class="header__btn">
-          <div class="header__btn-inner-text">
-            <img src="./assets/icons/bounty.webp" alt="bounty rune">
-            счет: 
-            <span class="header__btn-inner-score">12</span>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </header>
-
-  <section class="pagination">
-    <div class="container">
-      <div class="pagination__bg">
-        <div class="pagination__wrapper">
-          <li class="pagination__item pagination__item_active">
-            <div class="pagination__link">
-              Центральная линия
-            </div>
-          </li>
-          <li class="pagination__item">
-            <div class="pagination__link">
-              Сложная линия
-            </div>
-          </li>
-          <li class="pagination__item">
-            <div class="pagination__link">
-              Легкая линия
-            </div>
-          </li>
-          <li class="pagination__item">
-            <div class="pagination__link">
-              Лес
-            </div>
-          </li>
-          <li class="pagination__item">
-            <div class="pagination__link">
-              Роуминг
-            </div>
-          </li>
-          <li class="pagination__item">
-            <div class="pagination__link">
-              Поддержка
-            </div>
-          </li>
+          
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="jumbotron">
-    <div class="container">
-        <div class="jumbotron__wrapper">
-          <div class="jumbotron__img">
-            <img src="./assets/img/anon.png" alt="anonimous photo">
-          </div>
-          <div class="jumbotron__player">
-            <div class="jumbotron__title">
-              ******
-            </div>
-            <div class="jumbotron__divider"></div>
-           
-            <div class="audio-player">
-              <div class="timeline">
-                <div class="progress" style="width: 0%;"></div>
+    </header>
+  
+    <section class="pagination">
+      <div class="container">
+        <div class="pagination__bg">
+          <div class="pagination__wrapper">
+            <li class="pagination__item pagination__item_active">
+              <div class="pagination__link" id="Mid Lane">
+                Центральная линия
               </div>
-              <div class="controls">
-                <div class="play-container">
-                  <div class="toggle-play play">
-                </div>
-                </div>
-                <div class="time">
-                  <div class="current">0:00</div>
-                  <div class="divider">/</div>
-                  <div class="length">00:00</div>
-                </div>
-                <div class="volume-container">
-                  <div class="volume-button">
-                    <div class="volume icono-volumeMedium"></div>
-                  </div>
-                  <div class="volume-slider">
-                    <div class="volume-percentage" style="width: 75%;"></div>
-                  </div>
-                </div>
+            </li>
+            <li class="pagination__item">
+              <div class="pagination__link" id="Off Lane">
+                Сложная линия
               </div>
-            </div>
-
+            </li>
+            <li class="pagination__item">
+              <div class="pagination__link" id="Safe Lane">
+                Легкая линия
+              </div>
+            </li>
+            <li class="pagination__item">
+              <div class="pagination__link" id="Jungle">
+                Лес
+              </div>
+            </li>
+            <li class="pagination__item">
+              <div class="pagination__link" id="Roaming">
+                Роуминг
+              </div>
+            </li>
+            <li class="pagination__item">
+              <div class="pagination__link" id="Support">
+                Поддержка
+              </div>
+            </li>
           </div>
         </div>
-    </div>
-  </section>
+      </div>
+    </section>
   
-
-  <div class="container">
-    <div class="game-controls">
-      <section class="variant">
-        <ul class="variant__wrapper">
-          <div class="variant__list">
-            <span class="variant__status">
-              <img style="width: 32px;" src="https://static.wikia.nocookie.net/dota2_gamepedia/images/d/d6/Storm_Spirit_minimap_icon.png" alt="">
-            </span>
-            Storm Spirit
-          </div>
-          <div class="variant__list">
-            <span class="variant__status"></span>
-            Tinker
-          </div>
-          <div class="variant__list variant__list_incorrect">
-            <span class="variant__status"></span>
-            Shadow Fiend
-          </div>
-          <div class="variant__list">
-            <span class="variant__status"></span>
-            Void Spirit
-          </div>
-          <div class="variant__list variant__list_correct">
-            <span class="variant__status"></span>
-            Invoker
-          </div>
-          <div class="variant__list">
-            <span class="variant__status"></span>
-            Outworld Destroyer
-          </div>
-        </ul>
-      </section>
-
-      <section class="details">
-        <div class="details__wrapper">
-          <div class="details__instruction">
-            <div class="details__instruction-text">
-              <span class="details__instruction-title">Инструкция</span> <br>
-              1. Включите плеер и прослушайте героя.<br>
-              2. Выберите героя из списка голос которого прозвучал.<br>
-              3. После выбора правильного героя нажмите "Далее".
+    <section class="jumbotron">
+      <div class="container">
+          <div class="jumbotron__wrapper">
+            <div class="jumbotron__img">
+              <img src="./assets/img/anon.png" alt="anonimous photo">
             </div>
-          </div>
-
-          <div class="details__hero hero">
-            <div class="hero__wrapper">
-              <div class="hero__video">
-                <video width="140" height="140" autoplay muted loop>
-                  <source src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/storm_spirit.webm" type="	video/webm">
-                  Your browser does not support the video tag.
-                </video>
+            <div class="jumbotron__player">
+              <div class="jumbotron__title">
+                ******
               </div>
-              <div class="hero__descr">
-                <div class="hero__name">
-                  Storm Spirit
+              <div class="jumbotron__divider"></div>
+             
+              <div class="audio-player">
+                <div class="timeline">
+                  <div class="progress" style="width: 0%;"></div>
                 </div>
-                <div class="hero__phrase">
-                  "Everyone complains about the weather…well, I'm doing something about it!"
-                </div>
-                
-                <div class="hero__audio">
-                  <div class="audio-player">
-                    <div class="timeline">
-                      <div class="progress" style="width: 0%;"></div>
+                <div class="controls">
+                  <div class="play-container">
+                    <div class="toggle-play play">
+                  </div>
+                  </div>
+                  <div class="time">
+                    <div class="current">0:00</div>
+                    <div class="divider">/</div>
+                    <div class="length">00:00</div>
+                  </div>
+                  <div class="volume-container">
+                    <div class="volume-button">
+                      <div class="volume icono-volumeMedium"></div>
                     </div>
-                    <div class="controls">
-                      <div class="play-container">
-                        <div class="toggle-play play">
-                      </div>
-                      </div>
-                      <div class="time">
-                        <div class="current">0:00</div>
-                        <div class="divider">/</div>
-                        <div class="length">00:00</div>
-                      </div>
-                      <div class="volume-container">
-                        <div class="volume-button">
-                          <div class="volume icono-volumeMedium"></div>
-                        </div>
-                        <div class="volume-slider">
-                          <div class="volume-percentage" style="width: 75%;"></div>
-                        </div>
-                      </div>
+                    <div class="volume-slider">
+                      <div class="volume-percentage" style="width: 75%;"></div>
                     </div>
                   </div>
                 </div>
-
               </div>
-            </div>
-            <div class="hero__text">
-              Райдзин Громокег — сила природы в самом буквальном смысле: это буйная энергия ветра и непогоды, заключённая в человеческом обличье. Как же он неистов, неудержим и задорен! Весёлый, словно любимый дядюшка, Райдзин заряжает всё вокруг своей искрящейся энергией. Но не всегда всё было именно так: начало его жизни положила трагедия. Много поколений назад, на плато за Скулящими горами, добрые люди страдали от голода и засухи. Обычный маг стихий Громокег запретным заклинанием призвал духа бури, умоляя его о дожде. Разгневанный дерзостью смертного, небесный Райдзин обрушил на землю потопы и ураганы. Громокег не мог противостоять духу, пока не произнёс самоубийственное заклятье, сковавшее их судьбы: он запер небесного духа в клетке собственного тела. С тех пор громогласный Райдзин и задорный Громокег навсегда стали жизнерадостным небожителем, ступающим по земле — и имя ему Райдзин Громокег.
+  
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-
-    <div class="next-btn">
-      <div class="next-btn__inner-text">
-        next
       </div>
+    </section>
+    
+  
+    <div class="container">
+      <div class="game-controls">
+        <section class="variant">
+          <ul class="variant__wrapper">
+            <div class="variant__list">
+              <span class="variant__status">
+                <!-- <img style="width: 32px;" src="https://static.wikia.nocookie.net/dota2_gamepedia/images/d/d6/Storm_Spirit_minimap_icon.png" alt=""> -->
+              </span>
+              Storm Spirit
+            </div>
+            <div class="variant__list">
+              <span class="variant__status"></span>
+              Tinker
+            </div>
+            <div class="variant__list">
+              <span class="variant__status"></span>
+              Shadow Fiend
+            </div>
+            <div class="variant__list">
+              <span class="variant__status"></span>
+              Void Spirit
+            </div>
+            <div class="variant__list">
+              <span class="variant__status"></span>
+              Invoker
+            </div>
+            <div class="variant__list">
+              <span class="variant__status"></span>
+              Outworld Destroyer
+            </div>
+          </ul>
+        </section>
+  
+        <section class="details">
+          <div class="details__wrapper">
+            <div class="details__instruction">
+              <div class="details__instruction-text">
+                <span class="details__instruction-title">Инструкция</span> <br>
+                1. Включите плеер и прослушайте героя.<br>
+                2. Выберите героя из списка голос которого прозвучал.<br>
+                3. После выбора правильного героя нажмите "Далее".
+              </div>
+            </div>
+  
+            <div class="details__hero hero">
+              <div class="hero__wrapper">
+                <div class="hero__video">
+                  <video width="140" height="140" autoplay muted loop>
+                    <source src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/storm_spirit.webm" type="	video/webm">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="hero__descr">
+                  <div class="hero__name">
+                    Storm Spirit
+                  </div>
+                  <div class="hero__phrase">
+                    "Everyone complains about the weather…well, I'm doing something about it!"
+                  </div>
+                  
+                  <div class="hero__audio">
+                    <div class="audio-player audio-player-small">
+                      <div class="timeline">
+                        <div class="progress" style="width: 0%;"></div>
+                      </div>
+                      <div class="controls">
+                        <div class="play-container">
+                          <div class="toggle-play play">
+                        </div>
+                        </div>
+                        <div class="time">
+                          <div class="current">0:00</div>
+                          <div class="divider">/</div>
+                          <div class="length">00:00</div>
+                        </div>
+                        <div class="volume-container">
+                          <div class="volume-button">
+                            <div class="volume icono-volumeMedium"></div>
+                          </div>
+                          <div class="volume-slider">
+                            <div class="volume-percentage" style="width: 75%;"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+              </div>
+              <div class="hero__text">
+                Райдзин Громокег — сила природы в самом буквальном смысле: это буйная энергия ветра и непогоды, заключённая в человеческом обличье. Как же он неистов, неудержим и задорен! Весёлый, словно любимый дядюшка, Райдзин заряжает всё вокруг своей искрящейся энергией. Но не всегда всё было именно так: начало его жизни положила трагедия. Много поколений назад, на плато за Скулящими горами, добрые люди страдали от голода и засухи. Обычный маг стихий Громокег запретным заклинанием призвал духа бури, умоляя его о дожде. Разгневанный дерзостью смертного, небесный Райдзин обрушил на землю потопы и ураганы. Громокег не мог противостоять духу, пока не произнёс самоубийственное заклятье, сковавшее их судьбы: он запер небесного духа в клетке собственного тела. С тех пор громогласный Райдзин и задорный Громокег навсегда стали жизнерадостным небожителем, ступающим по земле — и имя ему Райдзин Громокег.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+  
+      <div class="next-btn">
+        <div class="next-btn__inner-text">
+          далее
+        </div>
+      </div>
+  
     </div>
-
   </div>
 
   <script src="script.js"></script>
