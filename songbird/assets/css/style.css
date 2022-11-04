@@ -599,6 +599,7 @@ a:active {
   width: 50%;
 }
 .variant__wrapper {
+  margin: 0;
   width: 100%;
   display: flex;
   column-gap: 20px;
@@ -738,4 +739,34 @@ a:active {
 }
 .hero__audio {
   margin-top: 20px;
+}
+
+.next-btn {
+  width: 100%;
+  margin-top: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3137254902);
+  padding: 15px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.2s;
+  opacity: 0.8;
+}
+.next-btn__inner-text {
+  font-family: radiance;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.next-btn_active {
+  border-color: #1c6209;
+  background: rgba(37, 40, 46, 0.71);
+  color: #daffc2;
+  opacity: 1;
+  text-shadow: 1px 1px 8px #47ff46;
 }
