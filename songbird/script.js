@@ -175,10 +175,10 @@ function createPlayer(selector, audioSrc) {
 
 /***/ }),
 
-/***/ "./src/js/modules/setRandomHero.js":
-/*!*****************************************!*\
-  !*** ./src/js/modules/setRandomHero.js ***!
-  \*****************************************/
+/***/ "./src/js/modules/setHeroes.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/setHeroes.js ***!
+  \*************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -186,11 +186,33 @@ function createPlayer(selector, audioSrc) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_db_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/db.json */ "./src/assets/db.json");
 var _assets_db_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/db.json */ "./src/assets/db.json", 1);
+/* harmony import */ var _showDetail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showDetail */ "./src/js/modules/showDetail.js");
 
 
-function setRandomHero() {}
 
-/* harmony default export */ __webpack_exports__["default"] = (setRandomHero);
+function setHeroes() {
+  const currCategory = document.querySelector('.pagination__item_active .pagination__link').getAttribute('id');
+  const heroesList = document.querySelector('.variant__wrapper');
+  const heroes = _assets_db_json__WEBPACK_IMPORTED_MODULE_0__.filter(hero => hero.line == currCategory);
+  const randomHeroIndex = Math.floor(Math.random() * 6);
+  const correctHeroId = heroes[randomHeroIndex].id;
+  let heroListInner = '';
+  heroes.forEach(({
+    id,
+    name
+  }) => {
+    heroListInner += `
+      <div class="variant__list" heroId="${id}">
+        <span class="variant__status"></span>
+        ${name}
+      </div>
+    `;
+  });
+  heroesList.innerHTML = heroListInner;
+  Object(_showDetail__WEBPACK_IMPORTED_MODULE_1__["default"])(correctHeroId);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (setHeroes);
 
 /***/ }),
 
@@ -209,7 +231,7 @@ var _assets_db_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webp
 
 
 
-function showDetail() {
+function showDetail(correctHeroId) {
   const heroes = document.querySelectorAll('.variant__list');
   const instruction = document.querySelector('.details__instruction');
   const details = document.querySelector('.details__hero');
@@ -225,6 +247,13 @@ function showDetail() {
         video,
         audio
       } = checkedHeroData;
+
+      if (checkedId == correctHeroId) {
+        event.target.classList.add('variant__list_correct');
+      } else {
+        event.target.classList.add('variant__list_incorrect');
+      }
+
       details.innerHTML = `
       <div class="hero__wrapper">
         <div class="hero__video">
@@ -294,16 +323,15 @@ function showDetail() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_createPlayer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/createPlayer */ "./src/js/modules/createPlayer.js");
-/* harmony import */ var _modules_setRandomHero__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/setRandomHero */ "./src/js/modules/setRandomHero.js");
+/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
 /* harmony import */ var _modules_showDetail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/showDetail */ "./src/js/modules/showDetail.js");
 
 
 
 document.addEventListener('DOMContentLoaded', event => {
-  Object(_modules_showDetail__WEBPACK_IMPORTED_MODULE_2__["default"])();
-  Object(_modules_setRandomHero__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  // showDetail();
+  Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
   Object(_modules_createPlayer__WEBPACK_IMPORTED_MODULE_0__["default"])('.audio-player', 'https://static.wikia.nocookie.net/dota2_gamepedia/images/8/82/Vo_crystalmaiden_cm_rare_01.mp3');
-  Object(_modules_createPlayer__WEBPACK_IMPORTED_MODULE_0__["default"])('.audio-player-small', 'https://static.wikia.nocookie.net/dota2_gamepedia/images/8/82/Vo_crystalmaiden_cm_rare_01.mp3');
 });
 
 /***/ })
