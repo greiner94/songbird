@@ -704,10 +704,14 @@ a:active {
   column-gap: 20px;
 }
 .hero__video {
+  height: 155px;
   background: url(../img/hero-bg.jpg);
   background-repeat: round;
   border-radius: 4px;
   border: 2px solid grey;
+}
+.hero__descr {
+  flex: auto;
 }
 .hero__text {
   margin-top: 10px;
