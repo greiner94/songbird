@@ -175,6 +175,24 @@ function createPlayer(selector, audioSrc) {
 
 /***/ }),
 
+/***/ "./src/js/modules/nextBtn.js":
+/*!***********************************!*\
+  !*** ./src/js/modules/nextBtn.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function nextBtn() {
+  const nextButton = document.querySelector('.next-btn');
+  nextButton.classList.add('next-btn_active');
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (nextBtn);
+
+/***/ }),
+
 /***/ "./src/js/modules/setHeroes.js":
 /*!*************************************!*\
   !*** ./src/js/modules/setHeroes.js ***!
@@ -186,7 +204,11 @@ function createPlayer(selector, audioSrc) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_db_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/db.json */ "./src/assets/db.json");
 var _assets_db_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/db.json */ "./src/assets/db.json", 1);
-/* harmony import */ var _showDetail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./showDetail */ "./src/js/modules/showDetail.js");
+/* harmony import */ var _createPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPlayer */ "./src/js/modules/createPlayer.js");
+/* harmony import */ var _showCorrectChoose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./showCorrectChoose */ "./src/js/modules/showCorrectChoose.js");
+/* harmony import */ var _showDetail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./showDetail */ "./src/js/modules/showDetail.js");
+
+
 
 
 
@@ -195,7 +217,7 @@ function setHeroes() {
   const heroesList = document.querySelector('.variant__wrapper');
   const heroes = _assets_db_json__WEBPACK_IMPORTED_MODULE_0__.filter(hero => hero.line == currCategory);
   const randomHeroIndex = Math.floor(Math.random() * 6);
-  const correctHeroId = heroes[randomHeroIndex].id;
+  const correctHero = heroes[randomHeroIndex];
   let heroListInner = '';
   heroes.forEach(({
     id,
@@ -209,10 +231,59 @@ function setHeroes() {
     `;
   });
   heroesList.innerHTML = heroListInner;
-  Object(_showDetail__WEBPACK_IMPORTED_MODULE_1__["default"])(correctHeroId);
+  Object(_showDetail__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_showCorrectChoose__WEBPACK_IMPORTED_MODULE_2__["default"])(correctHero);
+  Object(_createPlayer__WEBPACK_IMPORTED_MODULE_1__["default"])('.audio-player', correctHero.audio);
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (setHeroes);
+
+/***/ }),
+
+/***/ "./src/js/modules/showCorrectChoose.js":
+/*!*********************************************!*\
+  !*** ./src/js/modules/showCorrectChoose.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _assets_db_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/db.json */ "./src/assets/db.json");
+var _assets_db_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/db.json */ "./src/assets/db.json", 1);
+/* harmony import */ var _nextBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nextBtn */ "./src/js/modules/nextBtn.js");
+
+
+
+function showCorrectChoose(correctHero) {
+  const heroes = document.querySelectorAll('.variant__list');
+  heroes.forEach(hero => {
+    hero.addEventListener('click', event => {
+      const clickedElem = event.target;
+
+      if (clickedElem.getAttribute('heroId') == correctHero.id) {
+        clickedElem.classList.add('variant__list_correct');
+        const mainHeroWrapper = document.querySelector('.jumbotron__wrapper');
+        const heroVideoInner = `
+        <div class="hero__video" style="height: 130px;">
+          <video width="120" height="120" autoplay="" muted="" loop="">
+            <source src="${correctHero.video}">
+            Your browser does not support the video tag.
+          </video>
+        </div>`;
+        mainHeroWrapper.firstElementChild.remove();
+        mainHeroWrapper.insertAdjacentHTML('afterbegin', heroVideoInner);
+        const hiddenHeroName = document.querySelector('.jumbotron__title');
+        hiddenHeroName.innerHTML = correctHero.name;
+        Object(_nextBtn__WEBPACK_IMPORTED_MODULE_1__["default"])();
+      } else {
+        clickedElem.classList.add('variant__list_incorrect');
+      }
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (showCorrectChoose);
 
 /***/ }),
 
@@ -228,15 +299,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_db_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/db.json */ "./src/assets/db.json");
 var _assets_db_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/db.json */ "./src/assets/db.json", 1);
 /* harmony import */ var _createPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPlayer */ "./src/js/modules/createPlayer.js");
+/* harmony import */ var _showCorrectChoose__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./showCorrectChoose */ "./src/js/modules/showCorrectChoose.js");
 
 
 
-function showDetail(correctHeroId) {
+
+function showDetail() {
   const heroes = document.querySelectorAll('.variant__list');
   const instruction = document.querySelector('.details__instruction');
   const details = document.querySelector('.details__hero');
   heroes.forEach(hero => {
     hero.addEventListener('click', event => {
+      const checkedHero = event.target;
       const checkedId = event.target.getAttribute('heroId');
       const checkedHeroData = _assets_db_json__WEBPACK_IMPORTED_MODULE_0__.filter(hero => hero.id == checkedId)[0];
       const {
@@ -247,13 +321,6 @@ function showDetail(correctHeroId) {
         video,
         audio
       } = checkedHeroData;
-
-      if (checkedId == correctHeroId) {
-        event.target.classList.add('variant__list_correct');
-      } else {
-        event.target.classList.add('variant__list_incorrect');
-      }
-
       details.innerHTML = `
       <div class="hero__wrapper">
         <div class="hero__video">
@@ -323,15 +390,16 @@ function showDetail(correctHeroId) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_createPlayer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/createPlayer */ "./src/js/modules/createPlayer.js");
-/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
-/* harmony import */ var _modules_showDetail__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/showDetail */ "./src/js/modules/showDetail.js");
+/* harmony import */ var _modules_nextBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nextBtn */ "./src/js/modules/nextBtn.js");
+/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
+/* harmony import */ var _modules_showDetail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/showDetail */ "./src/js/modules/showDetail.js");
+
 
 
 
 document.addEventListener('DOMContentLoaded', event => {
   // showDetail();
-  Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  Object(_modules_createPlayer__WEBPACK_IMPORTED_MODULE_0__["default"])('.audio-player', 'https://static.wikia.nocookie.net/dota2_gamepedia/images/8/82/Vo_crystalmaiden_cm_rare_01.mp3');
+  Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__["default"])(); // nextBtn();
 });
 
 /***/ })
