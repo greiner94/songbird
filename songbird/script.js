@@ -97,6 +97,26 @@ module.exports = JSON.parse("[{\"id\":17,\"name\":\"Storm Spirit\",\"img\":\"htt
 
 /***/ }),
 
+/***/ "./src/js/modules/calcScore.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/calcScore.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function calcScore() {
+  const scoreIndicator = document.querySelector('.header__btn-inner-score');
+  const incorrectSelected = document.querySelectorAll('.variant__list_incorrect');
+  const pointsForLevel = 5 - +incorrectSelected.length;
+  scoreIndicator.textContent = pointsForLevel;
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (calcScore);
+
+/***/ }),
+
 /***/ "./src/js/modules/createPlayer.js":
 /*!****************************************!*\
   !*** ./src/js/modules/createPlayer.js ***!
@@ -184,8 +204,10 @@ function createPlayer(selector, audioSrc) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _resetCategory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./resetCategory */ "./src/js/modules/resetCategory.js");
-/* harmony import */ var _setHeroes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setHeroes */ "./src/js/modules/setHeroes.js");
+/* harmony import */ var _calcScore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScore */ "./src/js/modules/calcScore.js");
+/* harmony import */ var _resetCategory__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./resetCategory */ "./src/js/modules/resetCategory.js");
+/* harmony import */ var _setHeroes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./setHeroes */ "./src/js/modules/setHeroes.js");
+
 
 
 
@@ -208,8 +230,9 @@ function nextBtn() {
       nextButton.classList.remove('next-btn_active');
     }
 
-    Object(_resetCategory__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    Object(_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_calcScore__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    Object(_resetCategory__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_setHeroes__WEBPACK_IMPORTED_MODULE_2__["default"])();
   });
 }
 
@@ -338,6 +361,7 @@ function showCorrectChoose(correctHero) {
   heroes.forEach(hero => {
     hero.addEventListener('click', event => {
       const clickedElem = event.target;
+      const nextButton = document.querySelector('.next-btn');
 
       if (clickedElem.getAttribute('heroId') == correctHero.id) {
         clickedElem.classList.add('variant__list_correct');
@@ -353,10 +377,11 @@ function showCorrectChoose(correctHero) {
         mainHeroWrapper.insertAdjacentHTML('afterbegin', heroVideoInner);
         const hiddenHeroName = document.querySelector('.jumbotron__title');
         hiddenHeroName.innerHTML = correctHero.name;
-        const nextButton = document.querySelector('.next-btn');
         nextButton.classList.add('next-btn_active');
       } else {
-        clickedElem.classList.add('variant__list_incorrect');
+        if (!nextButton.classList.contains('next-btn_active')) {
+          clickedElem.classList.add('variant__list_incorrect');
+        }
       }
     });
   });
