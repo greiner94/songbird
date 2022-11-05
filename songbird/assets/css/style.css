@@ -715,6 +715,7 @@ a:active {
 }
 .hero__text {
   margin-top: 10px;
+  padding-right: 5px;
   overflow: auto;
   height: 128px;
   font-size: 15px;
@@ -777,8 +778,13 @@ a:active {
 }
 .next-btn_active {
   border-color: #1c6209;
-  background: rgba(37, 40, 46, 0.71);
+  background: rgba(36, 96, 34, 0.46);
   color: #daffc2;
   opacity: 1;
   text-shadow: 1px 1px 8px #47ff46;
+}
+.next-btn_active:hover {
+  background: rgba(44, 117, 41, 0.46);
+  margin-top: 18px;
+  margin-bottom: 2px;
 }

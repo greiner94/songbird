@@ -184,12 +184,96 @@ function createPlayer(selector, audioSrc) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _resetCategory__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./resetCategory */ "./src/js/modules/resetCategory.js");
+/* harmony import */ var _setHeroes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setHeroes */ "./src/js/modules/setHeroes.js");
+
+
+
 function nextBtn() {
   const nextButton = document.querySelector('.next-btn');
-  nextButton.classList.add('next-btn_active');
+  nextButton.addEventListener('click', () => {
+    if (nextButton.classList.contains('next-btn_active')) {
+      const categorieElems = document.querySelectorAll('.pagination__item');
+      let currentIdexOfCategory;
+      categorieElems.forEach((elem, index) => {
+        if (elem.classList.contains('pagination__item_active')) {
+          currentIdexOfCategory = index;
+          elem.classList.remove('pagination__item_active');
+        }
+
+        if (index == currentIdexOfCategory + 1) {
+          elem.classList.add('pagination__item_active');
+        }
+      });
+      nextButton.classList.remove('next-btn_active');
+    }
+
+    Object(_resetCategory__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    Object(_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  });
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (nextBtn);
+
+/***/ }),
+
+/***/ "./src/js/modules/resetCategory.js":
+/*!*****************************************!*\
+  !*** ./src/js/modules/resetCategory.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function resetCategory() {
+  const instruction = document.querySelector('.details__instruction');
+  const details = document.querySelector('.details__hero');
+  instruction.style.display = 'block';
+  details.style.display = 'none';
+  const heroName = document.querySelector('.jumbotron__title');
+  heroName.textContent = '******';
+  const mainHeroWrapper = document.querySelector('.jumbotron__wrapper');
+  const heroDefaultImg = `
+    <div class="jumbotron__img">
+      <img src="./assets/img/anon.png" alt="anonimous photo">
+    </div>
+    `;
+  mainHeroWrapper.firstElementChild.remove();
+  mainHeroWrapper.insertAdjacentHTML('afterbegin', heroDefaultImg);
+  const audioPlayer = document.querySelector('.audio-player');
+  audioPlayer.remove();
+  const elemBeforePlayer = document.querySelector('.jumbotron__divider');
+  const playerInnerHtml = `
+    <div class="audio-player">
+      <div class="timeline">
+        <div class="progress" style="width: 0%;"></div>
+      </div>
+      <div class="controls">
+        <div class="play-container">
+          <div class="toggle-play play">
+        </div>
+        </div>
+        <div class="time">
+          <div class="current">0:00</div>
+          <div class="divider">/</div>
+          <div class="length">0:05</div>
+        </div>
+        <div class="volume-container">
+          <div class="volume-button">
+            <div class="volume icono-volumeMedium"></div>
+          </div>
+          <div class="volume-slider">
+            <div class="volume-percentage" style="width: 75%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  elemBeforePlayer.insertAdjacentHTML('afterend', playerInnerHtml);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (resetCategory);
 
 /***/ }),
 
@@ -249,12 +333,6 @@ function setHeroes() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _assets_db_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/db.json */ "./src/assets/db.json");
-var _assets_db_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/db.json */ "./src/assets/db.json", 1);
-/* harmony import */ var _nextBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./nextBtn */ "./src/js/modules/nextBtn.js");
-
-
-
 function showCorrectChoose(correctHero) {
   const heroes = document.querySelectorAll('.variant__list');
   heroes.forEach(hero => {
@@ -275,7 +353,8 @@ function showCorrectChoose(correctHero) {
         mainHeroWrapper.insertAdjacentHTML('afterbegin', heroVideoInner);
         const hiddenHeroName = document.querySelector('.jumbotron__title');
         hiddenHeroName.innerHTML = correctHero.name;
-        Object(_nextBtn__WEBPACK_IMPORTED_MODULE_1__["default"])();
+        const nextButton = document.querySelector('.next-btn');
+        nextButton.classList.add('next-btn_active');
       } else {
         clickedElem.classList.add('variant__list_incorrect');
       }
@@ -310,7 +389,6 @@ function showDetail() {
   const details = document.querySelector('.details__hero');
   heroes.forEach(hero => {
     hero.addEventListener('click', event => {
-      const checkedHero = event.target;
       const checkedId = event.target.getAttribute('heroId');
       const checkedHeroData = _assets_db_json__WEBPACK_IMPORTED_MODULE_0__.filter(hero => hero.id == checkedId)[0];
       const {
@@ -389,17 +467,13 @@ function showDetail() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_createPlayer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/createPlayer */ "./src/js/modules/createPlayer.js");
-/* harmony import */ var _modules_nextBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nextBtn */ "./src/js/modules/nextBtn.js");
-/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
-/* harmony import */ var _modules_showDetail__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/showDetail */ "./src/js/modules/showDetail.js");
-
-
+/* harmony import */ var _modules_nextBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/nextBtn */ "./src/js/modules/nextBtn.js");
+/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
 
 
 document.addEventListener('DOMContentLoaded', event => {
-  // showDetail();
-  Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__["default"])(); // nextBtn();
+  Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_0__["default"])();
 });
 
 /***/ })
