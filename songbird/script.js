@@ -219,9 +219,22 @@ function nextBtn() {
     if (nextButton.classList.contains('next-btn_active')) {
       const categorieElems = document.querySelectorAll('.pagination__item');
       let currentIdexOfCategory;
+
+      if (nextButton.getAttribute('data-results')) {
+        const linkToResults = document.createElement('a');
+        const body = document.querySelector('body');
+        linkToResults.setAttribute('href', '/results.html');
+        linkToResults.classList.add('results-link');
+        body.appendChild(linkToResults);
+        const score = document.querySelector('.header__btn-inner-score');
+        localStorage.setItem('score', score.textContent);
+        body.querySelector('.results-link').click();
+      }
+
       categorieElems.forEach((elem, index) => {
         if (elem.classList.contains('pagination__item_active') && categorieElems.length == index + 2) {
           nextButton.firstElementChild.textContent = 'Результаты';
+          nextButton.setAttribute('data-results', 'true');
         }
 
         if (elem.classList.contains('pagination__item_active')) {
@@ -509,6 +522,12 @@ document.addEventListener('DOMContentLoaded', event => {
   try {
     Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
     Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  } catch (error) {}
+
+  try {
+    const scoreElem = document.querySelector('.results__score-points');
+    const scoreValue = localStorage.getItem('score');
+    scoreElem.textContent = scoreValue;
   } catch (error) {}
 });
 
