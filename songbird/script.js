@@ -220,6 +220,10 @@ function nextBtn() {
       const categorieElems = document.querySelectorAll('.pagination__item');
       let currentIdexOfCategory;
       categorieElems.forEach((elem, index) => {
+        if (elem.classList.contains('pagination__item_active') && categorieElems.length == index + 2) {
+          nextButton.firstElementChild.textContent = 'Результаты';
+        }
+
         if (elem.classList.contains('pagination__item_active')) {
           currentIdexOfCategory = index;
           elem.classList.remove('pagination__item_active');
@@ -502,8 +506,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 document.addEventListener('DOMContentLoaded', event => {
-  Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  try {
+    Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  } catch (error) {}
 });
 
 /***/ })

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dota 2 quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap-reboot.rtl.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+    
+</head>
+<body class="body">
+    <div class="results">
+        <div class="results__bg">
+            <picture class="results__img-wrapper">
+                <source media="(max-width: 799px)" srcset="./assets/img/final-bg.jpg" />
+                <source media="(min-width: 800px)" srcset="./assets/img/final-bg.jpg" />
+                <img class="results__img" src="./assets/img/final-bg.jpg" alt="background image" />
+            </picture>
+            <div class="results__shadow"></div>
+        </div>
+        <div class="results__text">
+            <div class="results__title animate__animated animate__fadeInUp">
+                <span class="minor">Поздравляем!</span>
+                <br>Вы прошли викторину и набрали 25 из 30 возможных баллов
+            </div>
+            <div class="results__descr">
+                <a href="/game.html">
+                    <div class="results__btn">
+                        <div class="results__btn-inner-text">начать сначала</div>
+                    </div>
+                </a>
+            </div>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
