@@ -917,3 +917,34 @@ a:active {
   margin-top: 18px;
   margin-bottom: 2px;
 }
+
+.footer__wrapper {
+  border-radius: 5px 0 0 0px;
+  position: absolute;
+  display: flex;
+  width: 300px;
+  height: 100px;
+  z-index: 10;
+  background: #e2dace;
+  right: 0;
+  align-items: center;
+  justify-content: space-around;
+}
+.footer__github {
+  width: 50px;
+  height: 50px;
+}
+.footer__github img {
+  width: 100%;
+  height: 100%;
+}
+.footer__rs {
+  height: 50px;
+}
+.footer__rs img {
+  width: 100%;
+  height: 100%;
+}
+.footer__year {
+  font-weight: 500;
+}
