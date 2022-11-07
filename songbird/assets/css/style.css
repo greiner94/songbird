@@ -279,6 +279,7 @@ a:active {
 }
 
 .body {
+  height: 100vh;
   background: #000;
   cursor: default;
 }
@@ -286,7 +287,7 @@ a:active {
 .promo {
   display: flex;
   width: 100%;
-  min-height: 764px;
+  height: 100vh;
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -438,8 +439,15 @@ a:active {
   align-items: center;
   margin-bottom: 20px;
 }
+.results__img-wrapper {
+  width: 100vw;
+  height: 100vh;
+}
 .results__img {
   width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
   opacity: 0.6;
   z-index: -1;
 }
@@ -520,7 +528,7 @@ a:active {
     height: 20vh;
   }
   .results__title {
-    font-size: 80px;
+    font-size: 23px;
   }
   .results__title .minor {
     font-size: 35px;
@@ -528,12 +536,12 @@ a:active {
 }
 @media (max-width: 639px) {
   .results__title {
-    line-height: 123%;
-    font-size: 59px;
+    line-height: 132%;
+    font-size: 24px;
   }
   .results__title .minor {
     font-size: 18px;
-    line-height: 0;
+    line-height: 3;
   }
   .results__descr {
     font-size: 19px;
@@ -920,30 +928,32 @@ a:active {
 
 .footer__wrapper {
   border-radius: 5px 0 0 0px;
-  position: absolute;
+  position: fixed;
   display: flex;
   width: 300px;
-  height: 100px;
+  height: 80px;
   z-index: 10;
   background: #e2dace;
   right: 0;
+  bottom: 0;
   align-items: center;
   justify-content: space-around;
 }
 .footer__github {
   width: 50px;
   height: 50px;
+  transition: 0.2s all;
 }
-.footer__github img {
-  width: 100%;
-  height: 100%;
+.footer__github:hover {
+  width: 54px;
+  height: 54px;
 }
 .footer__rs {
   height: 50px;
+  transition: 0.2s all;
 }
-.footer__rs img {
-  width: 100%;
-  height: 100%;
+.footer__rs:hover {
+  height: 54px;
 }
 .footer__year {
   font-weight: 500;
