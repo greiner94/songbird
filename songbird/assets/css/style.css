@@ -278,10 +278,27 @@ a:active {
   width: 120px;
 }
 
-.body {
+.body-game {
   height: 100vh;
   background: #000;
   cursor: default;
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.body-game::-webkit-scrollbar {
+  width: 10px;
+}
+.body-game::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+}
+.body-game::-webkit-scrollbar-thumb {
+  background: #464646;
+  border-radius: 10px;
+}
+.body-game::-webkit-scrollbar-thumb:hover {
+  background: #2f2f2f;
 }
 
 .promo {
@@ -657,10 +674,23 @@ a:active {
   opacity: 1;
 }
 
+@media (max-width: 639px) {
+  .header__logo-with-lang {
+    flex-wrap: wrap;
+  }
+  .header__btn-inner-text {
+    width: max-content;
+    font-size: 15px;
+  }
+  .header__btn-inner-text img {
+    display: none;
+  }
+}
 .pagination__wrapper {
   color: #fff;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .pagination__bg {
   background: rgba(37, 40, 46, 0.71);
@@ -796,12 +826,22 @@ a:active {
   border-radius: none;
   text-shadow: 1px 1px 8px #47ff46;
 }
+@media (max-width: 999px) {
+  .variant {
+    width: 100%;
+  }
+}
 .game-controls {
   margin-top: 20px;
   display: flex;
   column-gap: 20px;
 }
 
+@media (max-width: 999px) {
+  .game-controls {
+    flex-wrap: wrap;
+  }
+}
 .details {
   width: 50%;
 }
@@ -832,6 +872,12 @@ a:active {
   text-decoration: underline;
 }
 
+@media (max-width: 999px) {
+  .details {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
 .details__hero {
   display: none;
 }
@@ -891,6 +937,11 @@ a:active {
   margin-top: 20px;
 }
 
+@media (max-width: 639px) {
+  .hero__wrapper {
+    flex-wrap: wrap;
+  }
+}
 .next-btn {
   width: 100%;
   margin-top: 20px;
