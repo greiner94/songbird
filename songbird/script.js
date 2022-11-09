@@ -400,7 +400,7 @@ function nextBtn() {
       if (nextButton.getAttribute('data-results')) {
         const linkToResults = document.createElement('a');
         const body = document.querySelector('body');
-        linkToResults.setAttribute('href', '/results.html');
+        linkToResults.setAttribute('href', './results.html');
         linkToResults.classList.add('results-link');
         body.appendChild(linkToResults);
         const score = document.querySelector('.header__btn-inner-score');
