@@ -88,6 +88,15 @@
     "id" : "restart-btn",
     "rus" : "начать сначала",
     "eng" : "restart"
+  },
+  {
+    "id" : "all-heroes",
+    "rus" : "Все герои",
+    "eng" : "all heroes"
+  },
+  {
+    "id" : "play",
+    "rus" : "играть",
+    "eng" : "play"
   }
-
 ]

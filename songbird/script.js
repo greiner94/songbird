@@ -101,10 +101,104 @@ module.exports = JSON.parse("[{\"id\":17,\"name\":\"Storm Spirit\",\"img\":\"htt
 /*!******************************!*\
   !*** ./src/assets/lang.json ***!
   \******************************/
-/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, default */
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("[{\"id\":\"safe-lane\",\"rus\":\"Легкая линия\",\"eng\":\"Safe Lane\"},{\"id\":\"mid-lane\",\"rus\":\"Центральная линия\",\"eng\":\"Mid Lane\"},{\"id\":\"off-lane\",\"rus\":\"Сложная линия\",\"eng\":\"Off Lane\"},{\"id\":\"jungle\",\"rus\":\"Лес\",\"eng\":\"Jungle\"},{\"id\":\"roaming\",\"rus\":\"Роуминг\",\"eng\":\"Roaming\"},{\"id\":\"support\",\"rus\":\"Поддержка\",\"eng\":\"Support\"},{\"id\":\"score-value\",\"rus\":\"Счет\",\"eng\":\"Score\"},{\"id\":\"instruction-title\",\"rus\":\"Инструкция\",\"eng\":\"Instruction\"},{\"id\":\"instruction-descr\",\"rus\":\"1. Включите плеер и прослушайте героя.\\n2. Выберите героя из списка голос которого прозвучал.\\n3. После выбора правильного героя нажмите 'Далее'.\",\"eng\":\"1. Turn on the player and listen to the hero.\\n2. Select a hero from the list whose voice was heard.\\n3. After choosing the right hero, click 'Next'.\"},{\"id\":\"next-btn\",\"rus\":\"Далее\",\"eng\":\"Next\"},{\"id\":\"lang-switcher\",\"rus\":\"Язык\",\"eng\":\"Language\"},{\"id\":\"minor\",\"rus\":\"Викторина по героям игры\",\"eng\":\"Quiz on heroes of the game\"},{\"id\":\"promo-descr\",\"rus\":\"Dota — одна из наиболее популярных онлайн игр современности. Каждый день в неё играют сотни тысяч людей. А главный турнир The International ежигодно приковывает взгляды миллионов людей со всего мира. Поэтому предлогаю вам познакомится чуть ближе с миром этой игры, а знакомым с ней, испытать свои познания в репликах всем известных героев.\",\"eng\":\"Dota is one of the most popular online games of our time. Every day will come in hundreds of thousands of people. The main tournament of The International attracts the attention of millions of people from all over the world every year. Therefore, I suggest that you get to know the world of this game a little closer, test your knowledge in replicas of all the characters.\"},{\"id\":\"start-game-btn\",\"rus\":\"начать викторину\",\"eng\":\"start the quiz\"},{\"id\":\"minor-results\",\"rus\":\"Поздравляем!\",\"eng\":\"Congratulations!\"},{\"id\":\"results-text-before\",\"rus\":\"ВЫ ПРОШЛИ ВИКТОРИНУ И НАБРАЛИ\",\"eng\":\"YOU PASSED THE QUIZ AND GOT\"},{\"id\":\"results-text-after\",\"rus\":\"ИЗ 30 ВОЗМОЖНЫХ БАЛЛОВ\",\"eng\":\"OUT OF 30 POSSIBLE POINTS\"},{\"id\":\"restart-btn\",\"rus\":\"начать сначала\",\"eng\":\"restart\"}]");
+module.exports = JSON.parse("[{\"id\":\"safe-lane\",\"rus\":\"Легкая линия\",\"eng\":\"Safe Lane\"},{\"id\":\"mid-lane\",\"rus\":\"Центральная линия\",\"eng\":\"Mid Lane\"},{\"id\":\"off-lane\",\"rus\":\"Сложная линия\",\"eng\":\"Off Lane\"},{\"id\":\"jungle\",\"rus\":\"Лес\",\"eng\":\"Jungle\"},{\"id\":\"roaming\",\"rus\":\"Роуминг\",\"eng\":\"Roaming\"},{\"id\":\"support\",\"rus\":\"Поддержка\",\"eng\":\"Support\"},{\"id\":\"score-value\",\"rus\":\"Счет\",\"eng\":\"Score\"},{\"id\":\"instruction-title\",\"rus\":\"Инструкция\",\"eng\":\"Instruction\"},{\"id\":\"instruction-descr\",\"rus\":\"1. Включите плеер и прослушайте героя.\\n2. Выберите героя из списка голос которого прозвучал.\\n3. После выбора правильного героя нажмите 'Далее'.\",\"eng\":\"1. Turn on the player and listen to the hero.\\n2. Select a hero from the list whose voice was heard.\\n3. After choosing the right hero, click 'Next'.\"},{\"id\":\"next-btn\",\"rus\":\"Далее\",\"eng\":\"Next\"},{\"id\":\"lang-switcher\",\"rus\":\"Язык\",\"eng\":\"Language\"},{\"id\":\"minor\",\"rus\":\"Викторина по героям игры\",\"eng\":\"Quiz on heroes of the game\"},{\"id\":\"promo-descr\",\"rus\":\"Dota — одна из наиболее популярных онлайн игр современности. Каждый день в неё играют сотни тысяч людей. А главный турнир The International ежигодно приковывает взгляды миллионов людей со всего мира. Поэтому предлогаю вам познакомится чуть ближе с миром этой игры, а знакомым с ней, испытать свои познания в репликах всем известных героев.\",\"eng\":\"Dota is one of the most popular online games of our time. Every day will come in hundreds of thousands of people. The main tournament of The International attracts the attention of millions of people from all over the world every year. Therefore, I suggest that you get to know the world of this game a little closer, test your knowledge in replicas of all the characters.\"},{\"id\":\"start-game-btn\",\"rus\":\"начать викторину\",\"eng\":\"start the quiz\"},{\"id\":\"minor-results\",\"rus\":\"Поздравляем!\",\"eng\":\"Congratulations!\"},{\"id\":\"results-text-before\",\"rus\":\"ВЫ ПРОШЛИ ВИКТОРИНУ И НАБРАЛИ\",\"eng\":\"YOU PASSED THE QUIZ AND GOT\"},{\"id\":\"results-text-after\",\"rus\":\"ИЗ 30 ВОЗМОЖНЫХ БАЛЛОВ\",\"eng\":\"OUT OF 30 POSSIBLE POINTS\"},{\"id\":\"restart-btn\",\"rus\":\"начать сначала\",\"eng\":\"restart\"},{\"id\":\"all-heroes\",\"rus\":\"Все герои\",\"eng\":\"all heroes\"},{\"id\":\"play\",\"rus\":\"играть\",\"eng\":\"play\"}]");
+
+/***/ }),
+
+/***/ "./src/js/modules/allHeroes.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/allHeroes.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _assets_db_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/db.json */ "./src/assets/db.json");
+var _assets_db_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/db.json */ "./src/assets/db.json", 1);
+/* harmony import */ var _createPlayer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createPlayer */ "./src/js/modules/createPlayer.js");
+
+
+
+function allHeroes() {
+  const container = document.querySelector('.details .container');
+  let containerInner = '';
+  _assets_db_json__WEBPACK_IMPORTED_MODULE_0__.forEach(({
+    id,
+    name,
+    img,
+    video,
+    audio,
+    descr,
+    descrRu,
+    phrase
+  }) => {
+    containerInner += `
+    <div class="details__wrapper details__wrapper_all">
+    <div class="details__hero all-heroes" style="display: flex;">
+      <div class="all-heroes__wrapper">
+        <div class="all-heroes__video">
+          <video width="140" height="140" autoplay muted loop>
+            <source src="${video}" type="	video/webm">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="all-heroes__descr">
+          <div class="all-heroes__name">
+            ${name}
+          </div>
+          <div class="all-heroes__phrase">
+            "${phrase}"
+          </div>
+          
+          <div class="all-heroes__audio">
+            <div class="audio-player audio-player-small audio-${id}">
+              <div class="timeline">
+                <div class="progress" style="width: 0%;"></div>
+              </div>
+              <div class="controls">
+                <div class="play-container">
+                  <div class="toggle-play play">
+                </div>
+                </div>
+                <div class="time">
+                  <div class="current">0:00</div>
+                  <div class="divider">/</div>
+                  <div class="length">00:00</div>
+                </div>
+                <div class="volume-container">
+                  <div class="volume-button">
+                    <div class="volume icono-volumeMedium"></div>
+                  </div>
+                  <div class="volume-slider">
+                    <div class="volume-percentage" style="width: 75%;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="all-heroes__text">
+          ${localStorage.getItem('lang') == 'rus' ? descrRu : descr}
+        </div>
+      </div>
+    </div>
+  </div>
+  `;
+  });
+  container.innerHTML = containerInner;
+  _assets_db_json__WEBPACK_IMPORTED_MODULE_0__.forEach(({
+    id,
+    audio
+  }) => {
+    Object(_createPlayer__WEBPACK_IMPORTED_MODULE_1__["default"])(`.audio-${id}`, audio);
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (allHeroes);
 
 /***/ }),
 
@@ -258,6 +352,27 @@ function languageSwithing() {
 }
 
 
+
+/***/ }),
+
+/***/ "./src/js/modules/mainThemeAudio.js":
+/*!******************************************!*\
+  !*** ./src/js/modules/mainThemeAudio.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function mainThemeAudio() {
+  if (document.querySelector('#main-audio-theme')) {
+    const audioTheme = document.querySelector('#main-audio-theme');
+    audioTheme.volume = '.1';
+    audioTheme.play();
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (mainThemeAudio);
 
 /***/ }),
 
@@ -612,25 +727,34 @@ function soundEffects(choosenStatus) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/language */ "./src/js/modules/language.js");
-/* harmony import */ var _modules_nextBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nextBtn */ "./src/js/modules/nextBtn.js");
-/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
+/* harmony import */ var _modules_allHeroes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/allHeroes */ "./src/js/modules/allHeroes.js");
+/* harmony import */ var _modules_language__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/language */ "./src/js/modules/language.js");
+/* harmony import */ var _modules_mainThemeAudio__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/mainThemeAudio */ "./src/js/modules/mainThemeAudio.js");
+/* harmony import */ var _modules_nextBtn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/nextBtn */ "./src/js/modules/nextBtn.js");
+/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
+
+
 
 
 
 document.addEventListener('DOMContentLoaded', event => {
   try {
-    Object(_modules_language__WEBPACK_IMPORTED_MODULE_0__["language"])();
-    Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__["default"])();
-    Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_1__["default"])();
+    Object(_modules_language__WEBPACK_IMPORTED_MODULE_1__["language"])();
+    Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_4__["default"])();
+    Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_3__["default"])();
   } catch (error) {}
 
-  Object(_modules_language__WEBPACK_IMPORTED_MODULE_0__["languageSwithing"])();
+  Object(_modules_language__WEBPACK_IMPORTED_MODULE_1__["languageSwithing"])();
+  Object(_modules_mainThemeAudio__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
   try {
     const scoreElem = document.querySelector('.results__score-points');
     const scoreValue = localStorage.getItem('score');
     scoreElem.innerHTML = scoreValue;
+  } catch (error) {}
+
+  try {
+    Object(_modules_allHeroes__WEBPACK_IMPORTED_MODULE_0__["default"])();
   } catch (error) {}
 });
 

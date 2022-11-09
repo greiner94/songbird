@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dota 2 quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.1/css/bootstrap-reboot.rtl.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+</head>
+<body class="body-game">
+
+  <div class="game__bg">
+    <img src="./assets/img/game-bg.jpg" alt="background" class="game__bg-img">
+    <img src="./assets/img/fire.gif" alt="background" class="game__bg-img-fire">
+  </div>
+
+  <div class="animation animate__animated animate__fadeInUp">
+   
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__logo-with-lang">
+  
+            <a href="./" class="logo">
+              <div class="logo__wrapper">
+                <div class="logo__image">
+                  <img src="./assets/icons/dota-logo.png" alt="logo">
+                </div>
+                <div class="logo__title">
+                  quiz
+                </div>
+              </div>
+            </a>
+    
+            <div class="language">
+              <div class="language__wrapper">
+                <div class="language__icon">
+                  <img src="./assets/icons/language.svg" alt="language icon">
+                </div>
+                <div class="language__title" data-lang="lang-switcher">
+                  язык
+                </div>
+              </div>
+              <div class="language__variants">
+                <div class="language__item" id="russian">рус</div>
+                <div class="language__item" id="english">eng</div>
+              </div>
+            </div>
+
+            <a href="./game.html" class="all-heroes" data-lang="play">
+              играть
+            </a>
+  
+          </div>
+          
+        </div>
+      </div>
+    </header>
+    
+    <section class="details" style="width: 100%;">
+      <div class="container">
+        <div class="details__wrapper">
+          <div class="details__hero all-heroes" style="display: flex;">
+            <div class="all-heroes__wrapper">
+              <div class="all-heroes__video">
+                <video width="140" height="140" autoplay muted loop>
+                  <source src="https://cdn.cloudflare.steamstatic.com/apps/dota2/videos/dota_react/heroes/renders/storm_spirit.webm" type="	video/webm">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="all-heroes__descr">
+                <div class="all-heroes__name">
+                  Storm Spirit
+                </div>
+                <div class="all-heroes__phrase">
+                  "Everyone complains about the weather…well, I'm doing something about it!"
+                </div>
+                
+                <div class="all-heroes__audio">
+                  <div class="audio-player audio-player-small">
+                    <div class="timeline">
+                      <div class="progress" style="width: 0%;"></div>
+                    </div>
+                    <div class="controls">
+                      <div class="play-container">
+                        <div class="toggle-play play">
+                      </div>
+                      </div>
+                      <div class="time">
+                        <div class="current">0:00</div>
+                        <div class="divider">/</div>
+                        <div class="length">00:00</div>
+                      </div>
+                      <div class="volume-container">
+                        <div class="volume-button">
+                          <div class="volume icono-volumeMedium"></div>
+                        </div>
+                        <div class="volume-slider">
+                          <div class="volume-percentage" style="width: 75%;"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="all-heroes__text">
+                Райдзин Громокег — сила природы в самом буквальном смысле: это буйная энергия ветра и непогоды, заключённая в человеческом обличье. Как же он неистов, неудержим и задорен! Весёлый, словно любимый дядюшка, Райдзин заряжает всё вокруг своей искрящейся энергией. Но не всегда всё было именно так: начало его жизни положила трагедия. Много поколений назад, на плато за Скулящими горами, добрые люди страдали от голода и засухи. Обычный маг стихий Громокег запретным заклинанием призвал духа бури, умоляя его о дожде. Разгневанный дерзостью смертного, небесный Райдзин обрушил на землю потопы и ураганы. Громокег не мог противостоять духу, пока не произнёс самоубийственное заклятье, сковавшее их судьбы: он запер небесного духа в клетке собственного тела. С тех пор громогласный Райдзин и задорный Громокег навсегда стали жизнерадостным небожителем, ступающим по земле — и имя ему Райдзин Громокег.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="all-heroes__footer"></footer>
+   
+  </div>
+
+  <audio id="main-audio-theme" loop>
+    <source src="https://static.wikia.nocookie.net/dota2_gamepedia/images/8/8d/Music_default_ui_main_02.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
