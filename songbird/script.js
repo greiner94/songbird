@@ -742,10 +742,10 @@ document.addEventListener('DOMContentLoaded', event => {
     Object(_modules_language__WEBPACK_IMPORTED_MODULE_1__["language"])();
     Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_4__["default"])();
     Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_3__["default"])();
+    Object(_modules_mainThemeAudio__WEBPACK_IMPORTED_MODULE_2__["default"])();
   } catch (error) {}
 
   Object(_modules_language__WEBPACK_IMPORTED_MODULE_1__["languageSwithing"])();
-  Object(_modules_mainThemeAudio__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
   try {
     const scoreElem = document.querySelector('.results__score-points');

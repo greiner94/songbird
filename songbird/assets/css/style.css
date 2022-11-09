@@ -747,6 +747,14 @@ a:active {
     display: none;
   }
 }
+@media (max-width: 748px) {
+  .header__btn-inner-text img {
+    display: none;
+  }
+  .header__logo-with-lang {
+    column-gap: 14px;
+  }
+}
 .pagination__wrapper {
   color: #fff;
   display: flex;
