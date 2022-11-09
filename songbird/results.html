@@ -18,15 +18,23 @@
             </div>
             <div class="results__shadow"></div>
         </div>
-        <div class="results__text">
+        <span class="results__text">
             <h1 class="results__title animate__animated animate__fadeInUp">
-                <span class="minor">Поздравляем!</span>
-                <br>Вы прошли викторину и набрали <span class="results__score-points">0</span> из 30 возможных баллов
+                <span class="minor" data-lang="minor-results">Поздравляем!</span>
+                <div>
+                    <span data-lang="results-text-before">
+                        Вы прошли викторину и набрали
+                    </span>
+                    <span class="results__score-points"> 0 </span>
+                    <span data-lang="results-text-after">
+                        из 30 возможных баллов
+                    </span>
+                </div>
             </h1>
             <div class="results__descr">
                 <a href="/game.html">
                     <div class="results__btn">
-                        <div class="results__btn-inner-text">начать сначала</div>
+                        <div class="results__btn-inner-text" data-lang="restart-btn">начать сначала</div>
                     </div>
                 </a>
             </div>

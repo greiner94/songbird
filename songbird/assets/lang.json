@@ -1,0 +1,93 @@
+[
+  {
+    "id" : "safe-lane",
+    "rus" : "Легкая линия",
+    "eng" : "Safe Lane"
+  },
+  {
+    "id" : "mid-lane",
+    "rus" : "Центральная линия",
+    "eng" : "Mid Lane"
+  },
+  {
+    "id" : "off-lane",
+    "rus" : "Сложная линия",
+    "eng" : "Off Lane"
+  },
+  {
+    "id" : "jungle",
+    "rus" : "Лес",
+    "eng" : "Jungle"
+  },
+  {
+    "id" : "roaming",
+    "rus" : "Роуминг",
+    "eng" : "Roaming"
+  },
+  {
+    "id" : "support",
+    "rus" : "Поддержка",
+    "eng" : "Support"
+  },
+  {
+    "id" : "score-value",
+    "rus" : "Счет",
+    "eng" : "Score"
+  },
+  {
+    "id" : "instruction-title",
+    "rus" : "Инструкция",
+    "eng" : "Instruction"
+  },
+  {
+    "id" : "instruction-descr",
+    "rus" : "1. Включите плеер и прослушайте героя.\n2. Выберите героя из списка голос которого прозвучал.\n3. После выбора правильного героя нажмите 'Далее'.",
+    "eng" : "1. Turn on the player and listen to the hero.\n2. Select a hero from the list whose voice was heard.\n3. After choosing the right hero, click 'Next'."
+  },
+  {
+    "id" : "next-btn",
+    "rus" : "Далее",
+    "eng" : "Next"
+  },
+  {
+    "id" : "lang-switcher",
+    "rus" : "Язык",
+    "eng" : "Language"
+  },
+  {
+    "id" : "minor",
+    "rus" : "Викторина по героям игры",
+    "eng" : "Quiz on heroes of the game"
+  },
+  {
+    "id" : "promo-descr",
+    "rus" : "Dota — одна из наиболее популярных онлайн игр современности. Каждый день в неё играют сотни тысяч людей. А главный турнир The International ежигодно приковывает взгляды миллионов людей со всего мира. Поэтому предлогаю вам познакомится чуть ближе с миром этой игры, а знакомым с ней, испытать свои познания в репликах всем известных героев.",
+    "eng" : "Dota is one of the most popular online games of our time. Every day will come in hundreds of thousands of people. The main tournament of The International attracts the attention of millions of people from all over the world every year. Therefore, I suggest that you get to know the world of this game a little closer, test your knowledge in replicas of all the characters."
+  },
+  {
+    "id" : "start-game-btn",
+    "rus" : "начать викторину",
+    "eng" : "start the quiz"
+  },
+  {
+    "id" : "minor-results",
+    "rus" : "Поздравляем!",
+    "eng" : "Congratulations!"
+  },
+  {
+    "id" : "results-text-before",
+    "rus" : "ВЫ ПРОШЛИ ВИКТОРИНУ И НАБРАЛИ",
+    "eng" : "YOU PASSED THE QUIZ AND GOT"
+  },
+  {
+    "id" : "results-text-after",
+    "rus" : "ИЗ 30 ВОЗМОЖНЫХ БАЛЛОВ",
+    "eng" : "OUT OF 30 POSSIBLE POINTS"
+  },
+  {
+    "id" : "restart-btn",
+    "rus" : "начать сначала",
+    "eng" : "restart"
+  }
+
+]

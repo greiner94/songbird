@@ -97,6 +97,17 @@ module.exports = JSON.parse("[{\"id\":17,\"name\":\"Storm Spirit\",\"img\":\"htt
 
 /***/ }),
 
+/***/ "./src/assets/lang.json":
+/*!******************************!*\
+  !*** ./src/assets/lang.json ***!
+  \******************************/
+/*! exports provided: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("[{\"id\":\"safe-lane\",\"rus\":\"Легкая линия\",\"eng\":\"Safe Lane\"},{\"id\":\"mid-lane\",\"rus\":\"Центральная линия\",\"eng\":\"Mid Lane\"},{\"id\":\"off-lane\",\"rus\":\"Сложная линия\",\"eng\":\"Off Lane\"},{\"id\":\"jungle\",\"rus\":\"Лес\",\"eng\":\"Jungle\"},{\"id\":\"roaming\",\"rus\":\"Роуминг\",\"eng\":\"Roaming\"},{\"id\":\"support\",\"rus\":\"Поддержка\",\"eng\":\"Support\"},{\"id\":\"score-value\",\"rus\":\"Счет\",\"eng\":\"Score\"},{\"id\":\"instruction-title\",\"rus\":\"Инструкция\",\"eng\":\"Instruction\"},{\"id\":\"instruction-descr\",\"rus\":\"1. Включите плеер и прослушайте героя.\\n2. Выберите героя из списка голос которого прозвучал.\\n3. После выбора правильного героя нажмите 'Далее'.\",\"eng\":\"1. Turn on the player and listen to the hero.\\n2. Select a hero from the list whose voice was heard.\\n3. After choosing the right hero, click 'Next'.\"},{\"id\":\"next-btn\",\"rus\":\"Далее\",\"eng\":\"Next\"},{\"id\":\"lang-switcher\",\"rus\":\"Язык\",\"eng\":\"Language\"},{\"id\":\"minor\",\"rus\":\"Викторина по героям игры\",\"eng\":\"Quiz on heroes of the game\"},{\"id\":\"promo-descr\",\"rus\":\"Dota — одна из наиболее популярных онлайн игр современности. Каждый день в неё играют сотни тысяч людей. А главный турнир The International ежигодно приковывает взгляды миллионов людей со всего мира. Поэтому предлогаю вам познакомится чуть ближе с миром этой игры, а знакомым с ней, испытать свои познания в репликах всем известных героев.\",\"eng\":\"Dota is one of the most popular online games of our time. Every day will come in hundreds of thousands of people. The main tournament of The International attracts the attention of millions of people from all over the world every year. Therefore, I suggest that you get to know the world of this game a little closer, test your knowledge in replicas of all the characters.\"},{\"id\":\"start-game-btn\",\"rus\":\"начать викторину\",\"eng\":\"start the quiz\"},{\"id\":\"minor-results\",\"rus\":\"Поздравляем!\",\"eng\":\"Congratulations!\"},{\"id\":\"results-text-before\",\"rus\":\"ВЫ ПРОШЛИ ВИКТОРИНУ И НАБРАЛИ\",\"eng\":\"YOU PASSED THE QUIZ AND GOT\"},{\"id\":\"results-text-after\",\"rus\":\"ИЗ 30 ВОЗМОЖНЫХ БАЛЛОВ\",\"eng\":\"OUT OF 30 POSSIBLE POINTS\"},{\"id\":\"restart-btn\",\"rus\":\"начать сначала\",\"eng\":\"restart\"}]");
+
+/***/ }),
+
 /***/ "./src/js/modules/calcScore.js":
 /*!*************************************!*\
   !*** ./src/js/modules/calcScore.js ***!
@@ -199,6 +210,52 @@ function createPlayer(selector, audioSrc) {
 
 /***/ }),
 
+/***/ "./src/js/modules/language.js":
+/*!************************************!*\
+  !*** ./src/js/modules/language.js ***!
+  \************************************/
+/*! exports provided: language, languageSwithing */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "language", function() { return language; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "languageSwithing", function() { return languageSwithing; });
+/* harmony import */ var _assets_lang_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../assets/lang.json */ "./src/assets/lang.json");
+var _assets_lang_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/lang.json */ "./src/assets/lang.json", 1);
+
+
+function language() {
+  const engBtn = document.querySelector('#english');
+  const rusBtn = document.querySelector('#russian');
+  engBtn.addEventListener('click', () => {
+    localStorage.setItem('lang', 'eng');
+    languageSwithing();
+  });
+  rusBtn.addEventListener('click', () => {
+    localStorage.setItem('lang', 'rus');
+    languageSwithing();
+  });
+}
+
+function languageSwithing() {
+  if (!localStorage.getItem('lang')) {
+    localStorage.setItem('lang', 'rus');
+  }
+
+  const chooseLang = localStorage.getItem('lang');
+  const langElems = document.querySelectorAll('[data-lang]');
+  langElems.forEach(elem => {
+    const elemLangId = elem.getAttribute('data-lang');
+    const translation = _assets_lang_json__WEBPACK_IMPORTED_MODULE_0__.filter(elem => elem.id == elemLangId)[0];
+    elem.textContent = translation[chooseLang];
+  });
+}
+
+
+
+/***/ }),
+
 /***/ "./src/js/modules/nextBtn.js":
 /*!***********************************!*\
   !*** ./src/js/modules/nextBtn.js ***!
@@ -233,7 +290,8 @@ function nextBtn() {
 
       categorieElems.forEach((elem, index) => {
         if (elem.classList.contains('pagination__item_active') && categorieElems.length == index + 2) {
-          nextButton.firstElementChild.textContent = 'Результаты';
+          const lang = localStorage.getItem('lang');
+          nextButton.firstElementChild.textContent = lang == 'rus' ? 'Результаты' : 'Results';
           nextButton.setAttribute('data-results', 'true');
         }
 
@@ -446,6 +504,7 @@ function showDetail() {
         video,
         audio
       } = checkedHeroData;
+      const descrOnCurrLang = localStorage.getItem('lang') == 'rus' ? descrRu : descr;
       details.innerHTML = `
       <div class="hero__wrapper">
         <div class="hero__video">
@@ -491,7 +550,7 @@ function showDetail() {
       </div>
     </div>
     <div class="hero__text">
-    ${descrRu}
+    ${descrOnCurrLang}
     </div>
     `;
       Object(_createPlayer__WEBPACK_IMPORTED_MODULE_1__["default"])('.audio-player-small', audio);
@@ -514,20 +573,25 @@ function showDetail() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_nextBtn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/nextBtn */ "./src/js/modules/nextBtn.js");
-/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
+/* harmony import */ var _modules_language__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/language */ "./src/js/modules/language.js");
+/* harmony import */ var _modules_nextBtn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/nextBtn */ "./src/js/modules/nextBtn.js");
+/* harmony import */ var _modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/setHeroes */ "./src/js/modules/setHeroes.js");
+
 
 
 document.addEventListener('DOMContentLoaded', event => {
   try {
-    Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_1__["default"])();
-    Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_0__["default"])();
+    Object(_modules_language__WEBPACK_IMPORTED_MODULE_0__["language"])();
+    Object(_modules_setHeroes__WEBPACK_IMPORTED_MODULE_2__["default"])();
+    Object(_modules_nextBtn__WEBPACK_IMPORTED_MODULE_1__["default"])();
   } catch (error) {}
+
+  Object(_modules_language__WEBPACK_IMPORTED_MODULE_0__["languageSwithing"])();
 
   try {
     const scoreElem = document.querySelector('.results__score-points');
     const scoreValue = localStorage.getItem('score');
-    scoreElem.textContent = scoreValue;
+    scoreElem.innerHTML = scoreValue;
   } catch (error) {}
 });
 

@@ -40,9 +40,13 @@
                 <div class="language__icon">
                   <img src="./assets/icons/language.svg" alt="language icon">
                 </div>
-                <div class="language__title">
+                <div class="language__title"  data-lang="lang-switcher">
                   язык
                 </div>
+              </div>
+              <div class="language__variants">
+                <div class="language__item" id="russian">рус</div>
+                <div class="language__item" id="english">eng</div>
               </div>
             </div>
   
@@ -51,8 +55,9 @@
           <div class="header__btn">
             <div class="header__btn-inner-text">
               <img src="./assets/icons/bounty.webp" alt="bounty rune">
-              счет: 
-              <span class="header__btn-inner-score">0</span>
+              <span data-lang="score-value">счет</span>
+              :
+              <span class="header__btn-inner-score"> 0</span>
             </div>
           </div>
           
@@ -65,32 +70,32 @@
         <div class="pagination__bg">
           <div class="pagination__wrapper">
             <li class="pagination__item pagination__item_active">
-              <div class="pagination__link" id="Mid Lane">
+              <div class="pagination__link" id="Mid Lane" data-lang="mid-lane">
                 Центральная линия
               </div>
             </li>
             <li class="pagination__item">
-              <div class="pagination__link" id="Off Lane">
+              <div class="pagination__link" id="Off Lane" data-lang="off-lane">
                 Сложная линия
               </div>
             </li>
             <li class="pagination__item">
-              <div class="pagination__link" id="Safe Lane">
+              <div class="pagination__link" id="Safe Lane" data-lang="safe-lane">
                 Легкая линия
               </div>
             </li>
             <li class="pagination__item">
-              <div class="pagination__link" id="Jungle">
+              <div class="pagination__link" id="Jungle" data-lang="jungle">
                 Лес
               </div>
             </li>
             <li class="pagination__item">
-              <div class="pagination__link" id="Roaming">
+              <div class="pagination__link" id="Roaming" data-lang="roaming">
                 Роуминг
               </div>
             </li>
             <li class="pagination__item">
-              <div class="pagination__link" id="Support">
+              <div class="pagination__link" id="Support" data-lang="support">
                 Поддержка
               </div>
             </li>
@@ -179,7 +184,8 @@
           <div class="details__wrapper">
             <div class="details__instruction">
               <div class="details__instruction-text">
-                <span class="details__instruction-title">Инструкция</span> <br>
+                <span class="details__instruction-title" data-lang="instruction-title">Инструкция</span> <br>
+                <span class="details__instruction-descr" data-lang="instruction-descr">
                 1. Включите плеер и прослушайте героя.<br>
                 2. Выберите героя из списка голос которого прозвучал.<br>
                 3. После выбора правильного героя нажмите "Далее".
@@ -240,7 +246,7 @@
       </div>
   
       <div class="next-btn">
-        <div class="next-btn__inner-text">
+        <div class="next-btn__inner-text" data-lang="next-btn">
           далее
         </div>
       </div>
