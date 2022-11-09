@@ -165,7 +165,12 @@ function createPlayer(selector, audioSrc) {
     const progressBar = audioPlayer.querySelector(".progress");
     progressBar.style.width = audio.currentTime / audio.duration * 100 + "%";
     audioPlayer.querySelector(".time .current").textContent = getTimeCodeFromNum(audio.currentTime);
-  }, 100);
+
+    if (localStorage.getItem('sound') == 'stop') {
+      audio.currentTime = 0;
+      audio.pause();
+    }
+  }, 190);
   const playBtn = audioPlayer.querySelector(".controls .toggle-play");
   playBtn.addEventListener("click", () => {
     if (audio.paused) {
@@ -433,6 +438,8 @@ function setHeroes() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _calcScore__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./calcScore */ "./src/js/modules/calcScore.js");
+/* harmony import */ var _soundEffects__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./soundEffects */ "./src/js/modules/soundEffects.js");
+
 
 
 function showCorrectChoose(correctHero) {
@@ -456,11 +463,13 @@ function showCorrectChoose(correctHero) {
         mainHeroWrapper.insertAdjacentHTML('afterbegin', heroVideoInner);
         const hiddenHeroName = document.querySelector('.jumbotron__title');
         hiddenHeroName.innerHTML = correctHero.name;
+        Object(_soundEffects__WEBPACK_IMPORTED_MODULE_1__["default"])(true);
         Object(_calcScore__WEBPACK_IMPORTED_MODULE_0__["default"])();
         nextButton.classList.add('next-btn_active');
       } else {
         if (!nextButton.classList.contains('next-btn_active')) {
           clickedElem.classList.add('variant__list_incorrect');
+          Object(_soundEffects__WEBPACK_IMPORTED_MODULE_1__["default"])(false);
         }
       }
     });
@@ -561,6 +570,36 @@ function showDetail() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (showDetail);
+
+/***/ }),
+
+/***/ "./src/js/modules/soundEffects.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/soundEffects.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function soundEffects(choosenStatus) {
+  const uncorrectChooseSound = 'https://static.wikia.nocookie.net/dota2_gamepedia/images/0/07/Blink_Dagger_Blink_1.mp3';
+  const correctChooseSound = 'https://static.wikia.nocookie.net/dota2_gamepedia/images/d/d8/Hand_of_Midas_Transmute.mp3';
+
+  if (choosenStatus) {
+    const audio = new Audio(correctChooseSound);
+    localStorage.setItem('sound', 'stop');
+    audio.play();
+    setTimeout(() => {
+      localStorage.setItem('sound', 'start');
+    }, 400);
+  } else {
+    const audio = new Audio(uncorrectChooseSound);
+    audio.play();
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (soundEffects);
 
 /***/ }),
 
